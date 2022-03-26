@@ -71,7 +71,7 @@ class JwklongExtension {
     return args.STRING.toUpperCase()
   }
   powerOperator(args) {
-    return args.ONE.parseInt() ^ args.TWO.parseInt()
+    return Math.pow(args.ONE, args.TWO)
   }
   testVar() {
     return "the testing moment";
