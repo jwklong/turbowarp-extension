@@ -2,7 +2,7 @@ class JwklongExtension {
   getInfo() {
     return {
       id: 'jwklongextension', // change this if you make an actual extension!
-      name: 'TBD',
+      name: 'Extras',
       blocks: [
         {
           opcode: 'strictEqual',
@@ -39,6 +39,20 @@ class JwklongExtension {
             }
           }
         },{
+          opcode: 'powerOperator',
+          text: '[ONE] ^ [TWO]',
+          blockType: BlockType.REPORTER,
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: 3
+            },
+            TWO: {
+              type: Scratch.ArgumentType.NUMBER,
+              defaultValue: 3
+            }
+          }
+        },{
           opcode: 'testVar',
           blockType: Scratch.BlockType.REPORTER,
           text: 'Testing Variable'
@@ -55,6 +69,9 @@ class JwklongExtension {
   }
   upperString(args) {
     return args.STRING.toUpperCase()
+  }
+  powerOperator(args) {
+    return args.ONE ^ args.TWO
   }
   testVar() {
     return "the testing moment";
