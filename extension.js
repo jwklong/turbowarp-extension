@@ -41,7 +41,7 @@ class JwklongExtension {
         },{
           opcode: 'powerOperator',
           text: '[ONE] ^ [TWO]',
-          blockType: BlockType.REPORTER,
+          blockType: Scratch.BlockType.REPORTER,
           arguments: {
             ONE: {
               type: Scratch.ArgumentType.NUMBER,
