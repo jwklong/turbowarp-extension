@@ -62,7 +62,7 @@ class JwklongExtension {
   }
   strictEqual(args) {
     // Note strict equality: Inputs must match exactly: in type, case, etc.
-    return args.ONE === args.TWO;
+    return args.ONE.parseInt() === args.TWO.parseInt();
   }
   lowerString(args) {
     return args.STRING.toLowerCase()
