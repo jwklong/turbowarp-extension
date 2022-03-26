@@ -62,7 +62,7 @@ class JwklongExtension {
   }
   strictEqual(args) {
     // Note strict equality: Inputs must match exactly: in type, case, etc.
-    return args.ONE.parseInt() === args.TWO.parseInt();
+    return args.ONE === args.TWO;
   }
   lowerString(args) {
     return args.STRING.toLowerCase()
@@ -71,7 +71,7 @@ class JwklongExtension {
     return args.STRING.toUpperCase()
   }
   powerOperator(args) {
-    return args.ONE ^ args.TWO
+    return args.ONE.parseInt() ^ args.TWO.parseInt()
   }
   testVar() {
     return "the testing moment";
