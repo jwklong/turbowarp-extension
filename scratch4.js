@@ -1,7 +1,7 @@
 class Scratch4 {
   getInfo() {
     return {
-      id: 'jwklong_scratch4',
+      id: 'jwklongscratch4',
       name: 'Scratch 4',
       blocks: [
         {
