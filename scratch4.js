@@ -223,6 +223,23 @@ class Scratch4Strings {
     return args.TWO.replaceAll(args.ONE, args.THREE)
   }
 }
+class Scratch4Quirks {
+  getInfo() {
+    return {
+      id: 'jwklongscratch4quirks',
+      name: 'Quirks - Scratch 4',
+      blocks: [
+        {
+          opcode: 'quirkifvariable',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'If block style in variable',
+          branchCount: 1
+        },
+       ]
+    }
+  }
+}
 Scratch.extensions.register(new Scratch4Booleans());
 Scratch.extensions.register(new Scratch4Arrays());
 Scratch.extensions.register(new Scratch4Strings());
+Scratch.extensions.register(new Scratch4Quirks());
