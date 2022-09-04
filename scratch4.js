@@ -58,7 +58,7 @@ class Scratch4Booleans {
     return false
   }
 }
-
+let Scratch4Array = {}
 class Scratch4Arrays {
   getInfo() {
     return {
@@ -94,12 +94,11 @@ class Scratch4Arrays {
       ]
     };
   }
-  array: {}
   variableSet(args) {
-    array[args.ONE] = args.TWO
+    Scratch4Array[args.ONE] = args.TWO
   }
   variableGet(args) {
-    return array[args.ONE]
+    return Scratch4Array[args.ONE]
   }
 }
 Scratch.extensions.register(new Scratch4Booleans());
