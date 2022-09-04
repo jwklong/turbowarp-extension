@@ -66,7 +66,7 @@ class Scratch4Storage {
       name: 'localStorage - Scratch 4',
       blocks: [
         {
-          opcode: 'storageset',
+          opcode: 'storageSet',
           blockType: Scratch.BlockType.COMMAND,
           text: 'localStorage set [ONE] [TWO]',
           arguments: {
