@@ -232,8 +232,20 @@ class Scratch4Quirks {
         {
           opcode: 'quirkifvariable',
           blockType: Scratch.BlockType.REPORTER,
-          text: 'If block style in variable',
-          branchCount: 1
+          text: 'if [ONE] [TWO]\nelse [THREE]',
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.BOOLEAN,
+            },
+            TWO: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'string'
+            },
+            THREE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'string'
+            }
+          }
         },
        ]
     }
