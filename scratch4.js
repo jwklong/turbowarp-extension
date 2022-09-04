@@ -31,15 +31,31 @@ class Scratch4 {
               type: Scratch.ArgumentType.BOOLEAN,
             }
           }
+        },
+        {
+          opcode: 'one',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: 'true',
+        },
+        {
+          opcode: 'zero',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: 'false',
         }
       ]
     };
   }
-  strictlyEquals(args) {
+  strictEquals(args) {
     return args.ONE === args.TWO;
   }
   xor(args) {
     return (args.ONE || args.TWO) && !(args.ONE === args.TWO);
+  }
+  one() {
+    return true;
+  }
+  zero() {
+    return false;
   }
 }
 Scratch.extensions.register(new Scratch4());
