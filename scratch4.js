@@ -81,6 +81,36 @@ class Scratch4Arrays {
           }
         },
         {
+          opcode: 'arrayMake',
+          blockType: Scratch.BlockType.COMMAND,
+          text: 'array make [ONE]',
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'name'
+            }
+          }
+        },
+        {
+          opcode: 'arraySet',
+          blockType: Scratch.BlockType.COMMAND,
+          text: 'array set [ONE] [TWO] [THREE]',
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'array'
+            },
+            TWO: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'name'
+            },
+            THREE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'value'
+            }
+          }
+        },
+        {
           opcode: 'variableGet',
           blockType: Scratch.BlockType.REPORTER,
           text: 'variable get [ONE]',
@@ -88,6 +118,32 @@ class Scratch4Arrays {
             ONE: {
               type: Scratch.ArgumentType.STRING,
               defaultValue: 'name'
+            }
+          }
+        },
+        {
+          opcode: 'arrayGet',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'array get [ONE] [TWO]',
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'array'
+            },
+            TWO: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'name'
+            }
+          }
+        },
+        {
+          opcode: 'arrayReturn',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'array return [ONE]',
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'array'
             }
           }
         }
@@ -98,6 +154,22 @@ class Scratch4Arrays {
     Scratch4Array[args.ONE] = args.TWO
   }
   variableGet(args) {
+    if (!Scratch4Array[args.ONE]) {return null}
+    return Scratch4Array[args.ONE]
+  }
+  arrayMake(args) {
+    Scratch4Array[args.ONE] = {}
+  }
+  arraySet(args) {
+    if (!Scratch4Array[args.ONE]) {return}
+    Scratch4Array[args.ONE][args.TWO] = args.THREE
+  }
+  arrayGet(args) {
+    if (!Scratch4Array[args.ONE] || !Scratch4Array[args.ONE][args.TWO]) {return null}
+    return Scratch4Array[args.ONE][args.TWO]
+  }
+  arrayReturn(args) {
+    if (!Scratch4Array[args.ONE]) {return null}
     return Scratch4Array[args.ONE]
   }
 }
