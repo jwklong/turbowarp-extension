@@ -173,5 +173,56 @@ class Scratch4Arrays {
     return Scratch4Array[args.ONE]
   }
 }
+class Scratch4Strings {
+  getInfo() {
+    return {
+      id: 'jwklongscratch4strings',
+      name: 'Strings - Scratch 4',
+      blocks: [
+        {
+          opcode: 'split',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'split [ONE] by [TWO]',
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'string'
+            },
+            TWO: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'seperator'
+            }
+          }
+        },
+        {
+          opcode: 'replace',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'replace all [ONE] in [TWO] with [THREE]',
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'symbol'
+            },
+            TWO: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'string'
+            },
+            THREE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'symbol'
+            }
+          }
+        },
+      ]
+    };
+  }
+  split(args) {
+    return args.ONE.split(args.TWO)
+  }
+  replace(args) {
+    return args.TWO.replaceAll(args.ONE, args.THREE)
+  }
+}
 Scratch.extensions.register(new Scratch4Booleans());
 Scratch.extensions.register(new Scratch4Arrays());
+Scratch.extensions.register(new Scratch4Strings());
