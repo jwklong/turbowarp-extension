@@ -59,33 +59,48 @@ class Scratch4Booleans {
   }
 }
 
-class Scratch4Storage {
+class Scratch4Arrays {
   getInfo() {
     return {
-      id: 'jwklongscratch4storage',
-      name: 'localStorage - Scratch 4',
+      id: 'jwklongscratch4arrays',
+      name: 'Arrays - Scratch 4',
       blocks: [
         {
-          opcode: 'storageSet',
+          opcode: 'variableSet',
           blockType: Scratch.BlockType.COMMAND,
-          text: 'localStorage set [ONE] [TWO]',
+          text: 'variable set [ONE] [TWO]',
           arguments: {
             ONE: {
               type: Scratch.ArgumentType.STRING,
-              defaultValue: 'storage'
+              defaultValue: 'name'
             },
             TWO: {
               type: Scratch.ArgumentType.STRING,
               defaultValue: 'value'
             }
           }
+        },
+        {
+          opcode: 'variableGet',
+          blockType: Scratch.BlockType.REPORTER,
+          text: 'variable get [ONE]',
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'name'
+            }
+          }
         }
       ]
     };
   }
-  storageSet(args) {
-    localStorage.setItem("scratch4-"+args.ONE,args.TWO)
+  array: {}
+  variableSet(args) {
+    array[args.ONE] = args.TWO
+  }
+  variableGet(args) {
+    return array[args.ONE]
   }
 }
 Scratch.extensions.register(new Scratch4Booleans());
-Scratch.extensions.register(new Scratch4Storage());
+Scratch.extensions.register(new Scratch4Arrays());
