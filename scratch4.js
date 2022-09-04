@@ -1,8 +1,8 @@
-class Scratch4 {
+class Scratch4Booleans {
   getInfo() {
     return {
-      id: 'jwklongscratch4',
-      name: 'Scratch 4',
+      id: 'jwklongscratch4booleans',
+      name: 'Booleans - Scratch 4',
       blocks: [
         {
           opcode: 'strictEquals',
@@ -46,16 +46,46 @@ class Scratch4 {
     };
   }
   strictEquals(args) {
-    return args.ONE === args.TWO;
+    return args.ONE === args.TWO
   }
   xor(args) {
-    return (args.ONE || args.TWO) && !(args.ONE === args.TWO);
+    return (args.ONE || args.TWO) && !(args.ONE === args.TWO)
   }
   one() {
-    return true;
+    return true
   }
   zero() {
-    return false;
+    return false
   }
 }
-Scratch.extensions.register(new Scratch4());
+
+class Scratch4Storage {
+  getInfo() {
+    return {
+      id: 'jwklongscratch4storage',
+      name: 'localStorage - Scratch 4',
+      blocks: [
+        {
+          opcode: 'storageset',
+          blockType: Scratch.BlockType.COMMAND,
+          text: 'localStorage set [ONE] [TWO]',
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'storage'
+            },
+            TWO: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'value'
+            }
+          }
+        }
+      ]
+    };
+  }
+  storageSet(args) {
+    localStorage.setItem("scratch4-"+args.ONE,args.TWO)
+  }
+}
+Scratch.extensions.register(new Scratch4Booleans());
+Scratch.extensions.register(new Scratch4Storage());
