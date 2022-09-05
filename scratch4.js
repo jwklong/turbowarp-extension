@@ -33,6 +33,21 @@ class Scratch4Booleans {
           }
         },
         {
+          opcode: 'typeof',
+          blockType: Scratch.BlockType.BOOLEAN,
+          text: 'type of [ONE] is [TWO]',
+          arguments: {
+            ONE: {
+              type: Scratch.ArgumentType.STRING,
+              defaultValue: 'value'
+            },
+            TWO: {
+              type: Scratch.ArgumentType.STRING,
+              menu: 'typeList'
+            }
+          }
+        },
+        {
           opcode: 'one',
           blockType: Scratch.BlockType.BOOLEAN,
           text: 'true',
@@ -42,7 +57,10 @@ class Scratch4Booleans {
           blockType: Scratch.BlockType.BOOLEAN,
           text: 'false',
         }
-      ]
+      ],
+      menus: {
+        typeList: ['string','number',{text: 'array',value:'object'}]
+      }
     };
   }
   strictEquals(args) {
@@ -50,6 +68,9 @@ class Scratch4Booleans {
   }
   xor(args) {
     return (args.ONE || args.TWO) && !(args.ONE === args.TWO)
+  }
+  typeof(args) {
+    return typeof(args.ONE) === args.TWO
   }
   one() {
     return true
